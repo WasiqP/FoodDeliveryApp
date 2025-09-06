@@ -74,6 +74,7 @@ export default function Home() {
         container: {
             flex: 1,
             backgroundColor: theme.backgroundPrimary,
+            paddingBottom: 80, // Add padding for bottom tab bar
         },
         header: {
             flexDirection: 'row',
@@ -227,7 +228,7 @@ export default function Home() {
         },
     });
 
-    const renderCategory = ({ item }) => (
+    const renderCategory = ({ item }: { item: { id: string; icon: string; name: string } }) => (
         <TouchableOpacity
             style={[
                 styles.categoryItem,
@@ -245,7 +246,16 @@ export default function Home() {
         </TouchableOpacity>
     );
 
-    const renderFoodItem = ({ item }) => (
+    interface FoodItem {
+        id: string;
+        name: string;
+        image: string;
+        description: string;
+        price: number;
+        rating: number;
+    }
+
+    const renderFoodItem = ({ item }: { item: FoodItem }) => (
         <View style={styles.foodItem}>
             <Image source={{ uri: item.image }} style={styles.foodImage} />
             <View style={styles.foodInfo}>

@@ -2,7 +2,6 @@ import { StyleSheet, Text, View } from 'react-native'
 import {NativeStackScreenProps} from "@react-navigation/native-stack";
 import { RootStackParamList } from '../../App';
 import OnboardingCard from "../components/OboardingCard";
-import OnboardingSvg from "../assets/images/Logo";
 import React from 'react'
 
 
@@ -11,13 +10,13 @@ type Props = NativeStackScreenProps<RootStackParamList, "Onboarding01">;
 const Onboarding01: React.FC<Props> = ({navigation}) => {
   return (
       <OnboardingCard
-      Illustration={OnboardingSvg}
-      title= "Are You Hungry?"
-      description='Welcome to Geeko Food. Where you can Order Food Online yourself or order the Agent to do it for you'
+      imageSource={require("../assets/images/onboarding1.jpg")}
+      title= "Welcome to Chipy"
+      description='Discover delicious food from your favorite restaurants and get them delivered right to your doorstep'
       step={1}
       total={3}
       onNext={() => navigation.navigate("Onboarding02")}
-      onSkip={() => navigation.replace("Login")}
+      onSkip={() => navigation.replace("GetStarted")}
     />
   )
 }

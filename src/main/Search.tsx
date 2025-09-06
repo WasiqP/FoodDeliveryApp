@@ -120,6 +120,7 @@ export default function Search() {
         container: {
             flex: 1,
             backgroundColor: theme.backgroundPrimary,
+            paddingBottom: 80, // Add padding for bottom tab bar
         },
         header: {
             flexDirection: 'row',

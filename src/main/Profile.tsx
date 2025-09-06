@@ -44,6 +44,7 @@ export default function Profile() {
         container: {
             flex: 1,
             backgroundColor: theme.backgroundPrimary,
+            paddingBottom: 80, // Add padding for bottom tab bar
         },
         header: {
             backgroundColor: theme.primary,

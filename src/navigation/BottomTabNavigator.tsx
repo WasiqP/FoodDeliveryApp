@@ -1,6 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Platform } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useTheme } from '../theme';
 import Home from '../main/Home';
 import Search from '../main/Search';
@@ -36,6 +37,7 @@ const TabIcon = ({ name, focused, color, size }: any) => {
 
 export default function BottomTabNavigator() {
     const theme = useTheme();
+    const insets = useSafeAreaInsets();
 
     return (
         <Tab.Navigator
@@ -54,9 +56,20 @@ export default function BottomTabNavigator() {
                     backgroundColor: theme.card,
                     borderTopColor: theme.border,
                     borderTopWidth: 1,
-                    paddingBottom: 5,
+                    paddingBottom: Platform.OS === 'ios' ? insets.bottom : 5,
                     paddingTop: 5,
-                    height: 60,
+                    height: Platform.OS === 'ios' ? 60 + insets.bottom : 60,
+                    borderTopLeftRadius: 20,
+                    borderTopRightRadius: 20,
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    right: 0,
+                    shadowColor: theme.black,
+                    shadowOffset: { width: 0, height: -2 },
+                    shadowOpacity: 0.1,
+                    shadowRadius: 8,
+                    elevation: 8,
                 },
                 tabBarLabelStyle: {
                     fontSize: 12,

@@ -1,10 +1,10 @@
 import React, {useMemo} from "react";
-import {View,Text,StyleSheet, Pressable, Dimensions} from "react-native"
+import {View,Text,StyleSheet, Pressable, Dimensions, Image} from "react-native"
 import { SafeAreaView } from "react-native-safe-area-context";
 import { theme } from "../theme";
 
 interface Props{
-    Illustration: React.ComponentType<any>;
+    imageSource: any;
     title:string;
     description: string;
     step: number;
@@ -15,10 +15,10 @@ interface Props{
 }
 const { height: SCREEN_HEIGHT, width: SCREEN_WIDTH } = Dimensions.get('window');
 
-const OnboardingCard: React.FC<Props> = ({ Illustration, title, description, step, total, onNext, nextLabel = 'Continue', onSkip }) => {
-  // The original SVGs are 1024x768 (aspect 4:3). We'll scale to fit within a max area.
+const OnboardingCard: React.FC<Props> = ({ imageSource, title, description, step, total, onNext, nextLabel = 'Continue', onSkip }) => {
+  // Calculate image dimensions to fit within the illustration zone
   const { illusWidth, illusHeight } = useMemo(() => {
-    const aspect = 1024 / 768; // width / height = 4/3
+    const aspect = 4 / 3; // width / height = 4/3
     // Use available vertical space (roughly 55% of screen height allocated to illustrationZone) minus padding.
     const maxZoneHeight = SCREEN_HEIGHT * 0.55 - 60; // subtract some padding
     const maxZoneWidth = SCREEN_WIDTH - 56; // horizontal padding from screen style (28 * 2)
@@ -40,7 +40,11 @@ const OnboardingCard: React.FC<Props> = ({ Illustration, title, description, ste
   return (
     <SafeAreaView style={styles.screen}>
       <View style={styles.illustrationZone}>
-        <Illustration width={illusWidth} height={illusHeight} />
+        <Image 
+          source={imageSource} 
+          style={{ width: illusWidth, height: illusHeight }}
+          resizeMode="contain"
+        />
       </View>
       <View style={styles.textZone}>
         <Text style={styles.title}>{title}</Text>
