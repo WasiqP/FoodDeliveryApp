@@ -1,97 +1,155 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Chipy Food App
 
-# Getting Started
+A modern React Native food delivery app for the Chipy fast food restaurant chain.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## Features
 
-## Step 1: Start Metro
+- **Home Screen**: Browse food categories and featured items
+- **Search**: Find food items by name, category, or description
+- **Cart**: Manage your order with quantity controls and pricing
+- **Profile**: User account management and app settings
+- **Food Details**: Detailed view with ingredients, nutrition, and customization options
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## Design
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+- **Color Scheme**: Blue theme with dark blue (#1E3A8A), medium blue (#3B82F6), and light blue (#DBEAFE)
+- **Typography**: Poppins font family throughout the app
+- **Logo**: Custom Chipy logo (chipylogo.jpg)
 
-```sh
-# Using npm
-npm start
+## Screens
 
-# OR using Yarn
-yarn start
+### Main Screens
+- **Home**: Food categories, featured items, and search
+- **Search**: Search functionality with popular searches
+- **Cart**: Shopping cart with quantity controls and checkout
+- **Profile**: User profile and app settings
+
+### Authentication Screens
+- **Splash**: App loading screen with Chipy branding
+- **Login**: User login with email/password
+- **SignUp**: User registration
+
+### Detail Screens
+- **FoodDetail**: Individual food item details with customization options
+
+## Navigation
+
+The app uses React Navigation with:
+- Stack Navigator for main navigation flow
+- Bottom Tab Navigator for main app screens
+- Native Stack Navigator for screen transitions
+
+## Installation
+
+1. Install dependencies:
+```bash
+npm install
 ```
 
-## Step 2: Build and run your app
+2. For iOS:
+```bash
+cd ios && pod install && cd ..
+```
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
+3. Run the app:
+```bash
+# Android
 npm run android
 
-# OR using Yarn
-yarn android
-```
-
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
-```
-
-Then, and every time you update your native dependencies, run:
-
-```sh
-bundle exec pod install
-```
-
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
+# iOS
 npm run ios
-
-# OR using Yarn
-yarn ios
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## Dependencies
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+- React Native 0.81.1
+- React Navigation 6.x
+- React Native Safe Area Context
+- TypeScript
 
-## Step 3: Modify your app
+## Project Structure
 
-Now that you have successfully run the app, let's make changes!
+```
+src/
+├── assets/
+│   └── images/
+│       └── chipylogo.jpg
+├── authentication/
+│   ├── Login.tsx
+│   └── SignUp.tsx
+├── main/
+│   ├── Home.tsx
+│   ├── Search.tsx
+│   ├── Cart.tsx
+│   ├── Profile.tsx
+│   └── FoodDetail.tsx
+├── navigation/
+│   └── BottomTabNavigator.tsx
+├── onboarding/
+│   ├── Splash.tsx
+│   ├── GetStarted.tsx
+│   ├── Onboarding01.tsx
+│   ├── Onboarding02.tsx
+│   └── Onboarding03.tsx
+└── theme/
+    ├── colors.ts
+    └── index.ts
+```
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+## Features in Detail
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### Home Screen
+- Food categories with emoji icons
+- Featured food items with images and ratings
+- Search functionality
+- Add to cart buttons
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### Cart Screen
+- Item quantity controls
+- Price calculations with tax and delivery
+- Remove items functionality
+- Checkout button
 
-## Congratulations! :tada:
+### Search Screen
+- Real-time search filtering
+- Popular search suggestions
+- Category-based filtering
+- Empty state handling
 
-You've successfully run and modified your React Native App. :partying_face:
+### Profile Screen
+- User statistics (orders, favorites, rating)
+- Menu options for account management
+- App version information
 
-### Now what?
+### Food Detail Screen
+- High-quality food images
+- Detailed descriptions and ingredients
+- Nutrition information
+- Size and add-on options
+- Quantity selection
+- Dynamic pricing
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+## Static Data
 
-# Troubleshooting
+The app currently uses static data for:
+- Food items with images, prices, and descriptions
+- Categories with icons and colors
+- User profile information
+- Cart items
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+## Future Enhancements
 
-# Learn More
+- Backend integration for real data
+- User authentication with real API
+- Payment processing
+- Order tracking
+- Push notifications
+- Offline support
 
-To learn more about React Native, take a look at the following resources:
+## Development
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+The app is built with TypeScript and follows React Native best practices. All components use the centralized theme system for consistent styling and colors.
+
+## License
+
+This project is proprietary to Chipy Food Restaurant.
