@@ -24,13 +24,14 @@ const SignUp: React.FC<Props> = ({ navigation }) => {
         <Pressable style={styles.primaryBtn} android_ripple={{ color: 'rgba(255,255,255,0.15)' }} onPress={() => navigation.replace('MainTabs')}>
           <Text style={styles.primaryLabel}>Sign Up</Text>
         </Pressable>
+         <Pressable onPress={() => navigation.navigate('Login')}><Text style={styles.alt}>Already have an account? <Text style={styles.altLink}>Log In</Text></Text></Pressable>
         <Text style={styles.socialHint}>Sign Up with socials</Text>
         <View style={styles.socialRow}>
           <Pressable style={styles.socialBtn} android_ripple={{ color: 'rgba(255,255,255,0.15)' }}><Text style={styles.socialText}>G</Text></Pressable>
           <Pressable style={styles.socialBtn} android_ripple={{ color: 'rgba(255,255,255,0.15)' }}><Text style={styles.socialText}>f</Text></Pressable>
         </View>
         <Text style={styles.terms}>By signing up, you agree to our <Text style={styles.link}>Terms of Service</Text> and <Text style={styles.link}>Privacy Policy</Text>.</Text>
-        <Pressable onPress={() => navigation.navigate('Login')}><Text style={styles.alt}>Already have an account? <Text style={styles.altLink}>Log In</Text></Text></Pressable>
+       
       </View>
     </View>
   );
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
   socialText: { color: '#FFF', fontSize: 20, fontWeight: '700' },
   terms: { marginTop: 30, fontSize: 11, lineHeight: 16, textAlign: 'center', color: theme.textDim, fontFamily: 'Poppins-Regular' },
   link: { color: theme.primary },
-  alt: { marginTop: 30, fontSize: 13, textAlign: 'center', color: theme.textDim, fontFamily: 'Poppins-Regular' },
+  alt: { marginTop: 10, fontSize: 13, textAlign: 'center', color: theme.textDim, fontFamily: 'Poppins-Regular' },
   altLink: { color: theme.primary, fontFamily: 'Poppins-Medium' },
 });
 
